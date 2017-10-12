@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+
+    </div>
+    <img src="img/xmad_15032076478933_zWHYj.jpg" alt="" id="pic">
+    <button id="btn">改变宽度</button>
+    <script>
+        var demo = document.getElementById("demo");
+        var btn = document.getElementById("btn")
+        var _img = document.getElementById("pic");
+        btn.onclick = function () {
+            demo.style.width ="400px";
+            demo.style.backgroundColor ="blue";
+            demo.style.height = "600px";
+        }
+        _img.onmouseover = function () {
+            _img.src = "img/xmad_15032076478933_zWHYj.jpg"
+        }
+        _img.onmouseout = function () {
+            _img.src = "img/xmad_14934771942978_cnwrK.jpg";
+        }
+    </script>
+
+</body>
+</html>

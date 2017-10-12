@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input,button{
+            border: 0 none;
+
+        }
+        .search{
+            width: 258px;
+            height: 40px;
+            margin:100px auto;
+        }
+        .search input{
+            width: 208px;
+            height: 40px;
+            background: url("img/left.jpg") no-repeat;
+            border:0 none;
+            outline-style:none ;
+            padding-left: 8px;
+            color: #cccccc;
+            float: left;
+        }
+        .search button{
+            height: 40px;
+            width: 42px;
+            background: url("img/right.jpg") no-repeat;
+            float: right;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            function fu(id) {
+                var obg = document.getElementById(id);
+
+
+                obg.onfocus = function () {
+                    if(obg.value != '') {
+                        obg.value = '';
+                        obg.color = '#333';
+                    }
+                }
+                obg.onblur = function () {
+                    if(obg.value == ''){
+                        obg.value = '请输入';
+                    }
+                }
+            }
+            fu('txt');
+        }
+    </script>
+</head>
+<body>
+<div class="search">
+    <form action="">
+        <input type="text" value="请输入" id="txt">
+        <button></button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        #box{
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            cursor: pointer;
+            /*overflow: hidden;*/
+            position: relative;
+
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #pic{
+            width: 4380px;
+
+        }
+        #pic li{
+            float: left;
+            display: none;
+        }
+        #num{
+            position: absolute;
+            cursor: default;
+            left: 38%;
+            bottom: 10px;
+
+        }
+        #num li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #666666;
+            line-height: 20px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            margin: 5px;
+        }
+        #num li .active{
+            background: #f00;
+        }
+        .arrow{
+            height: 80px;
+            width: 30px;
+            text-align: center;
+            display: none;
+            position: absolute;
+            font: 600 18px/80px '宋体';
+            top:45%;
+        }
+        #left{
+            left: 0;
+        }
+        #right{
+            right: 0;
+        }
+        .arrow:hover{
+            background: rgba(0,0,0,0.7);
+        }
+        #box:hover .arrow{
+            display: block;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        function $(id) {
+            return typeof id === 'string' ? document.getElementById(id) : id ;
+        }
+        var index = 0;
+        var timer = null;
+        var pic = $('pic').getElementsByTagName('li');
+        var num = $('num').getElementsByTagName('li');
+        //定义函数changeOption
+        function changeOption(curindex) {
+            console.log(index);
+            for(var j=0;j<num.length;j++){
+                pic[j].style.display = 'none';
+                num[j].style.classname = '';
+            }
+            pic[curindex].style.display = 'block';
+            num[curindex].classname = 'active';
+            index = curindex;
+        }
+        //定义了定时器
+        timer = setInterval(run,2000);
+        //封装了函数run
+        function run() {
+            index++;
+            if(index>=num.length){
+                index = 0;
+            }
+            changeOption(index);
+        }
+        //单击左箭头
+        $('left').onclick = function () {
+            index--;
+            if(index <0){
+                index = num.length-1;
+                changeOption(index);
+            }
+        }
+        //单击右箭头
+        $('right').onclick = function () {
+            index++;
+            if(index >= $('right').length ){
+                index = 0;
+            }
+            changeOption(index);
+        }
+        //鼠标画在窗口上面，停止定时器
+        $('box').onmouseover = function () {
+            clearInterval(timer);
+        }
+        //鼠标离开窗口，开启定时器
+        $('box').onmouseout = function () {
+            timer = setInterval(run,2000);
+        }
+        //鼠标划在页签上面，停止定时器，手动切换
+        for(var i = 0;i<num.length;i++){
+            num[i].id = i;
+            num[i].onmouseover = function () {
+                clearInterval(timer);
+                changeOption(this.id);
+            }
+        }
+
+    }
+</script>
+<body>
+<div id="box">
+    <ul id="pic">
+        <li style="display:block"><img src="img/11.jpg" alt=""></li>
+        <li><img src="img/22.jpg" alt=""></li>
+        <li><img src="img/33.jpg" alt=""></li>
+        <li><img src="img/44.jpg" alt=""></li>
+        <li><img src="img/55.jpg" alt=""></li>
+        <li><img src="img/66.jpg" alt=""></li>
+    </ul>
+    <ol id="num">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ol>
+    <a href="javascript:;" class="arrow" id="left"><</a>
+    <a href="javascript:;" class="arrow" id="right">></a>
+</div>
+</body>
+</html>

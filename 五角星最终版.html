@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box span{
+        color: red;
+        font-size: 50px;
+        cursor: pointer;
+        float: left;
+    }
+</style>
+<body>
+<script src="jquery/jquery-1.4.1.min.js"></script>
+<script>
+    $(function () {
+        var falg = false;
+        var index = 0;
+        $('span').on('click',function () {
+            falg = true;
+            index = $(this).index();
+        })
+        $('span').on('mouseover',function () {
+            $(this).html('★').prevAll().html('★');
+            $(this).nextAll().html('☆')
+        })
+        $('span').on('mouseout',function () {
+            if(falg = false){
+                $('span').html('☆');
+            }else{
+                $('span').eq(index).prevAll().html('★');
+                $('span').eq(index).nextAll().html('☆');
+            }
+
+        })
+    })
+</script>
+<div class="box">
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+</div>
+</body>
+</html>

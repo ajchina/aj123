@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn1{
+            position:fixed;
+            right: 0;
+            bottom:0;
+        }
+    </style>
+</head>
+<body>
+<input id='btn1' type="button" value="回到顶部" />
+1<br/>
+1<br/>
+1<br/>1<br/>
+1<br/>
+1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+1<br/>1<br/>
+
+
+
+</body>
+<script>
+    var obg = document.getElementById('btn1');
+    obg.onclick = function () {
+        setInterval(function () {
+            var scollTop = document.documentElement.scrollTop||document.body.scrollTop;
+            var ispeed = Math.float(-scollTop/8);
+            document.documentElement.scrollTop = document.body.scrollTop = scollTop+ispeed;
+        },30);
+    }
+</script>
+</html>

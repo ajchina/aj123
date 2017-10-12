@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 340px;
+
+        }
+        li{
+            line-height: 20px;
+            height: 20px;
+            list-style: none;
+        }
+        li span{
+            margin: 5px;
+        }
+        .current{
+            background-color: #aaa!important;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>上证指数</span><span>股票涨停</span><span>股票嚣张</span><span>股票大涨</span>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var lis = document.getElementsByTagName('li');
+    for(var i =0,sum =lis.length; i<sum; i++){
+        if(i%2 == 0){
+            lis[i].style.backgroundColor ='#eee';
+        }
+        else {
+            lis[i].style.backgroundColor = '#ddd';
+        }
+        lis[i].onmouseover = function () {
+            this.className = 'current';
+        }
+        lis[i].onmouseout = function () {
+            this.className = '';
+        }
+    }
+</script>
+</html>

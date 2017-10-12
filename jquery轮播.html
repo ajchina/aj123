@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul,ol{
+        list-style: none;
+    }
+    .box{
+        width: 1226px;
+        height: 460px;
+        margin: 100px auto;
+        position: relative;
+    }
+    ul >li{
+        position: absolute;
+        left: 0;
+        top: 0;
+        cursor: pointer;
+    }
+    ol{
+        position: absolute;
+        left: 950px;
+        bottom: 10px;
+    }
+    ol >li{
+        width: 8px;
+        height: 8px;
+        background-color: #1a1a1a;
+        margin-left: 10px;
+        float: left;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 50%;
+        border: 2px solid #6d6d6d;
+        cursor: pointer;
+    }
+    .active{
+        background-color: #a0a0a0;
+    }
+</style>
+<script src="jquery/jquery-1.4.1.min.js"></script>
+<script>
+    $(function () {
+        var arr = ['https://i1.mifile.cn/a4/xmad_15059215613968_caqYM.jpg',
+                    'https://i1.mifile.cn/a4/xmad_15059605668649_yckqa.jpg',
+                    'https://i1.mifile.cn/a4/xmad_15057894501487_dvtNb.jpg',
+                    'https://i1.mifile.cn/a4/xmad_15058906332794_gQDJX.jpg',
+                    'https://i1.mifile.cn/a4/xmad_15055679885874_oINex.jpg'];
+        var str = '';
+        var new_ol = '';
+        for(var i=0;i<arr.length;i++){
+            str+= '<li><img src="'+arr[i]+'"></li>';
+            new_ol+= '<li></li>'
+        }
+        $('ul').html(str);
+        $('ol').html(new_ol);
+        $('ul>li').eq(0).siblings().hide();
+        var index = 0; //记录第几张图片
+        var aa = null;
+        //开启一个定时器
+        aa = setInterval(function () {
+            index++;
+            index = index>arr.length-1 ? 0 : index;
+            $('ul>li').eq(index).fadeIn().siblings().fadeOut();
+            $('ol>li').eq(index).addClass('active').siblings().removeClass('active');
+            $('img').on('mouseover',function () {
+                clearInterval(aa);
+            })
+            $('img').on('mouseout',function () {
+                aa = setInterval(function () {
+                    index++;
+                    index = index>arr.length-1 ? 0 : index;
+                    $('ul>li').eq(index).fadeIn().siblings().fadeOut();
+                },1500);
+            })
+        },1500);
+
+
+    })
+</script>
+<body>
+<div class="box">
+    <ul>
+
+    </ul>
+    <ol>
+
+    </ol>
+</div>
+</body>
+</html>

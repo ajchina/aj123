@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            margin: 100px auto;
+        }
+        ul {
+            list-style: none;
+        }
+        input{
+            width: 200px;
+            outline-style: none;
+            height: 38px;
+            font-size: 18px;
+        }
+        button{
+            height: 43px;
+        }
+        ul > li{
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="text"><button>查询您的手机号</button>
+    <ul>
+    </ul>
+</div>
+</body>
+<script src="jquery/jquery-1.4.1.min.js"></script>
+<script>
+    $('button').on('click',function () {
+        var txt = $('input').val();
+        $.ajax({
+            url:'http://apis.juhe.cn/mobile/get',
+            data:{
+                phone:txt,
+                key: '5d8acb813548d2823a7ab30ac9a90a04'
+            },
+            type: 'get',
+            dataType: 'jsonp',
+            jsonp:'callback',
+            success:function (data) {
+                console.log(data);
+                if(data.resultcode == 200){
+                    var str = '';
+                    str+='<li>省份: '+data.result.province+'</li>';
+                    str+='<li>城市: '+data.result.city+'</li>';
+                    str+='<li>区号: '+data.result.areacode+'</li>';
+                    str+='<li>邮编: '+data.result.zip+'</li>';
+                    str+='<li>运营商: '+data.result.company+'</li>';
+                    str+='<li>卡类型: '+data.result.card+'</li>';
+                    $('ul').html(str);
+                }else{
+                    $('ul').html('<h1>查询不到您的号码</h1>')
+                }
+            },
+            error:function () {
+                alert('请求失败');
+            }
+        })
+    })
+</script>
+</html>

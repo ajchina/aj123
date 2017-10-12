@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 432px;
+            margin: 200px auto;
+            border: 1px solid #cccccc;
+        }
+        #bottom > div{
+            width: 100%;
+            height: 400px;
+            display: none;
+        }
+        .currt{
+            background-color: purple;
+        }
+        #bottom > .show{
+            display: block;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        var buts = document.getElementsByTagName('button');
+        var divs = document.getElementById('bottom').getElementsByTagName('div');
+        for(var i=0;i<buts.length;i++){
+            buts[i].index = i;//自定义了一个buts[i].index属性
+            buts[i].onclick = function () {
+                for(var j=0;j<buts.length;j++){
+                    buts[j].className = '';
+                    divs[j].className = '';
+                }
+                this.className = 'currt';
+                divs[this.index].className  = 'show';
+            }
+        }
+    }
+</script>
+<body>
+<div id="box">
+    <div class="top">
+        <button>图片一</button>
+        <button>图片二</button>
+        <button>图片三</button>
+        <button>图片四</button>
+        <button>图片五</button>
+    </div>
+    <div id="bottom">
+        <div class="show">第一张图<img src="img/03big.jpg" alt="" style="width: 100%"></div>
+        <div>第二张图<img src="img/02big.jpg" alt="" style="width: 100%"></div>
+        <div>第三张图<img src="img/01big.jpg" alt="" style="width: 100%"></div>
+        <div>第四张图<img src="img/05big.jpg" alt="" style="width: 100%"></div>
+        <div>第五张图<img src="img/04big.jpg" alt="" style="width: 100%"></div>
+    </div>
+</div>
+</body>
+</html>

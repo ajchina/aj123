@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>狂拽酷炫，吊炸天</div
+>
+<div>狂拽酷炫，吊炸天</div>
+<div>狂拽酷炫，吊炸天</div>
+<div>狂拽酷炫，吊炸天</div>
+<div>狂拽酷炫，吊炸天</div>
+</body>
+<script>
+    var divs = document.getElementsByTagName('div');
+    var colors = ['red','blue','yellow','pink','green'];
+    setInterval(function () {
+        for(var i=0;i<divs.length;i++){
+            divs[i].style.color = colors[i];
+            divs[i].style.fontSize = 30+'px';
+        }
+        colors.push(colors.shift());
+    },10)
+</script>
+</html>

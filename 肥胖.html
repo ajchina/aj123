@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var weight = prompt('请输入您的体重');
+    var height = prompt('请输入您的身高');
+    var bim =(weight/(height^2));
+    if (bim > 32)
+    {alert('严重肥胖');}
+    else if (bim > 28)
+    {alert('肥胖');}
+    else if (bim >25)
+    {alert ('过重');}
+    else if (bim < 24.999 && bim >18.5)
+    {alert ('正常');}
+    else
+    {alert('过轻');}
+   /* var height = parseFloat(prompt('请输入身高（m）:'));
+    var weight = parseFloat(prompt('请输入体重（kg）：'));
+    var bmi =weight/(height^2);
+    if (bmi>=32){
+        alert('你太他妈重了')
+    } else if (bmi>=28) {alert('死胖子')}
+    else if (bmi>=25) {alert('pawn')}
+    else if (bmi>=18.5) {alert('deft')}
+    else {alert('多次点肉')}*/
+</script>
+</html>

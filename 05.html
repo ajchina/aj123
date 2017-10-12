@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+         div{
+             width: 100px;
+             height: 100px;
+             background-color: pink;
+             margin: 20px;
+             display: none;
+         }
+
+    </style>
+<!--    <script>
+        function fun(obg) {
+        var target = document.getElementById(obg);
+        target.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+<button onclick="fun('div1');">第一个按钮</button>
+<button onclick="fun('div2');">第二个按钮</button>
+<button onclick="fun('div3');">第三个按钮</button>
+<button onclick="fun('div4');">第四个按钮</button>
+<div id="div1">1</div>
+<div id="div2">2</div>
+<div id="div3">3</div>
+<div id="div4">4</div>-->
+
+<body>
+    <button id="button1">第一个按钮</button>
+    <button id="button2">第二个按钮</button>
+    <button id="button3">第三个按钮</button>
+    <button id="button4">第四个按钮</button>
+    <div id="demo1">1</div>
+    <div id="demo2">2</div>
+    <div id="demo3">3</div>
+    <div id="demo4">4</div>
+</body>
+
+
+<script>
+    function fu(but,demo) {
+        var button = document.getElementById(but);
+        var demo = document.getElementById(demo);
+        button.onclick = function () {
+            demo.style.display = 'block';
+        }
+    }
+    fu('button1','demo1');
+    fu('button2','demo2');
+    fu('button3','demo3');
+    fu('button4','demo4');
+    /*var bon1 = document.getElementById("button1");
+    var bon2 = document.getElementById("button2");
+    var bon3 = document.getElementById("button3");
+    var bon4 = document.getElementById("button4");
+    bon1.onclick = function (){
+        fun('demo1');
+    }
+    bon2.onclick = function (){
+        fun('demo2');
+    }
+    bon3.onclick = function (){
+        fun('demo3');
+    }
+    bon4.onclick = function (){
+        fun('demo4');
+    }
+    function fun(obg) {
+        var target = document.getElementById(obg);
+        target.style.display = 'block';
+    }*/
+</script>
+</html>

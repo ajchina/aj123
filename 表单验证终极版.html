@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    span {
+        display: inline-block;
+        width: 150px;
+        height: 20px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .current{
+        border: 1px solid red;
+    }
+</style>
+<body>
+<div id="a">
+    用户名：<input type="text" class="inp1"><span></span>
+</div>
+<div id="b">
+    密码：<input type="password" class="inp2"><span></span>
+</div>
+<div id="c">
+    手机号：<input type="text" class="inp3"><span></span>
+</div>
+<div id="d">
+    邮箱：<input type="text" class="inp4"><span></span>
+</div>
+<button>注册</button>
+</body>
+<script src="jquery/jquery-1.4.1.min.js"></script>
+<script>
+    $(function () {
+        var $inp = $('input');
+        var $span = $('span');
+        //所有的验证逻辑通过注册按钮才能被点击；
+        var arr = [false,false,false,false];
+        //obg函数 用来判断4个input框的验证逻辑是不是全部通过
+        function obg() {
+            var index = 0;
+            for(var i=0;i<arr.length;i++){
+                if(arr[i] === true){
+                    index++
+                }
+            }
+            if(index === 4){
+                $('button').removeAttr('disabled');
+            }else {
+                $('button').attr('disabled','false');
+            }
+        }
+        obg();
+        $('button').on('click',function () {
+            alert('注册成功');
+        })
+        $inp.eq(0).on('blur',function () {
+            var text = $(this).val().length;
+            if(text >= 6 && text <= 12){
+                $span.eq(0).html('输入正确');
+                $span.eq(0).css({color:'green'});
+                arr[0] = true;
+            } else {
+                $span.eq(0).html('请输入6到12位的字符');
+                $span.eq(0).css({color:'red'});
+                $inp.eq(0).addClass('.current');
+            }
+            obg();
+        })
+        $inp.eq(1).on('blur',function () {
+            var text = $(this).val().length;
+            if(text >= 6 && text <= 12){
+                $span.eq(1).html('输入正确');
+                $span.eq(1).css({color:'green'});
+                arr[1] = true;
+            }else {
+                $span.eq(1).html('请输入6到12位的字符');
+                $span.eq(1).css({color:'red'});
+            }
+            obg();
+        })
+        $inp.eq(2).on('blur',function () {
+            var text = $(this).val()
+            if(text.length === 11){ //此时为一个字符串
+                text = parseInt(text); //转化为数字
+                if(text.toString().length === 11){ //在转化为字符串
+                    $span.eq(2).html('输入正确');
+                    $span.eq(2).css({color:'green'});
+                    arr[2] = true;
+                }else {
+                    $span.eq(2).html('请输入正确的手机号格式');
+                    $span.eq(2).css({color:'red'});
+                }
+            }else{
+                $span.eq(2).html('手机号码为11位');
+                $span.eq(2).css({color:'red'});
+            }
+            obg();
+        })
+        $inp.eq(3).on('blur',function () {
+            var text = $(this).val();
+            if(text.indexOf('@') != -1){
+                $span.eq(3).html('输入正确');
+                $span.eq(3).css({color:'green'});
+                arr[3] = true;
+            }else {
+                $span.eq(3).html('请输入正确的邮箱格式');
+                $span.eq(3).css({color:'red'});
+            }
+            obg();
+        })
+    })
+</script>
+</html>

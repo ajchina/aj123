@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 1000px;
+            height: 520px;
+            margin: 0 auto;
+            overflow: hidden;
+
+        }
+        #top{
+            border: 1px solid #ddd;
+            width: 1000px;
+            height: 50px;
+            text-align: center;
+
+        }
+        ul{
+            list-style: none;
+        }
+        #top >ul > li{
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            width: 248px;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd ;
+        }
+        #bottom >ul{
+            width: 4000px;
+            height: 475px;
+
+        }
+        #bottom >ul >li{
+            float: left;
+        }
+        .currt{
+            background-color: purple;
+        }
+    </style>
+</head>
+<script src="../jquery/jquery-1.4.1.min.js"></script>
+<script>
+    window.onload = function () {
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var uls = $('top').getElementsByTagName('ul');
+        var li1 = uls[0].getElementsByTagName('li');
+        var ul1s = $('bottom').getElementsByTagName('ul');
+        var li2 = ul1s[0].getElementsByTagName('li');
+        for(var i=0;i<li1.length;i++){
+            li1[i].index = i;
+            li1[i].onmouseenter = function () {
+                for(var j=0;j<li1.length;j++){
+                    li1[j].className = '';
+                    li2[j].style.display = 'none';
+                }
+                this.className = 'currt';
+                li2[this.index].style.display = 'block';
+            }
+        }
+    }
+    /*$(function () {
+        $('#top li').mouseenter(function () {
+            index = $(this).index();
+            $(this).addClass('currt').siblings().removeClass('currt');
+            $('#bottom li').eq(index).show().siblings().hide();
+        })
+    })*/
+</script>
+<body>
+<div id="box">
+    <div id="top">
+        <ul>
+            <li>第一页</li>
+            <li>第二页</li>
+            <li>第三页</li>
+            <li>第四页</li>
+        </ul>
+    </div>
+    <div id="bottom">
+        <ul>
+            <li><img src="guojidapai.jpg" alt=""></li>
+            <li><img src="guozhuangmingpin.jpg" alt=""></li>
+            <li><img src="nanshijingpin.jpg" alt=""></li>
+            <li><img src="qingjieyongpin.jpg" alt=""></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

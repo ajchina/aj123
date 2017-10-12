@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 512px;
+            height: 500px;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+        }
+        #div1{
+            width: 512px;
+            height: 250px;
+            position: absolute;
+            bottom: 250px;
+        }
+        #div2{
+            width: 512px;
+            height: 250px;
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <img src="img/小米.png" alt="" id="imgs"></div>
+</body>
+<script>
+    var div1 = document.getElementById('div1');
+    var div2 = document.getElementById('div2');
+    var imgs = document.getElementById('imgs');
+    div1.onmousemove = function () {
+        setInterval(function () {
+            index++;
+            imgs.style.top = index+'px';
+        },50)
+    }
+</script>
+</html>

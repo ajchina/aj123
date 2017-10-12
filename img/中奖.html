@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function(){
+        function fun(id) {
+            return document.getElementById(id);
+        }
+        fun('btn').onclick = function () {
+            if(fun('txe').value == '安晋'){
+                alert('恭喜');
+            }else{
+                alert('哦，您没有中奖');
+            }
+        }
+    }
+</script>
+<body>
+<input type="text" id="txe" value="请输入您的名字"><button id="btn">查询</button>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    img{
+        position: absolute;
+        top: 0;
+    }
+    #left{
+        left: 0;
+    }
+    #right{
+        right:0;
+    }
+</style>
+<body>
+<!--定时器之 setTimeout()
+类似于定时炸弹-->
+<!--setInterval(fn,5000) 每隔5秒钟，就去执行函数fn一次
+setTimeout(fn,5000) 5秒钟之后，去执行fn 函数,只执行一次
+-->
+<img src="img/zb1.jpg" alt="" id="left">
+<img src="img/zb2.jpg" alt="" id="right">
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+<p>啊啊啊啊啊啊啊啊啊啊</p>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    } //id函数
+    function hide(id) {
+        $(id).style.display = 'none';
+    } //隐藏函数
+    function show(id) {
+        $(id).style.display = 'none';
+    } //显示函数
+    var speed = 5000;
+    setTimeout(closeAd,speed);
+    function closeAd() {
+        hide('left');
+        show('right');
+    }
+</script>
+</html>

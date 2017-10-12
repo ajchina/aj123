@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text"><button>查询</button>
+<ul>
+
+
+    <li>未来天气预报</li>
+    <li>温度</li>
+    <li>日期</li>
+    <li>天气</li>
+</ul>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
+
+"></script>
+<script>
+    $('button').on('click',function () {
+        var txt=$('input').val();
+        $.ajax({
+            url:'http://v.juhe.cn/weather/index
+
+            ',
+            data:{
+            cityname:txt,
+                key:'83dca7aa770a152be73f1ffc7e5e377a',
+        },
+        type:'get',
+            dataType:'jsonp',
+            jsonp:'callback',
+            success:function (data) {
+            var str='';
+            str+='<li>城市:'+data.result.today.city+'</li>',
+                str+=' <li>日期:'+data.result.today.date_y+'</li>',
+                str+=' <li>温度:'+data.result.today.temperature+'</li>',
+                str+='<li>天气:'+data.result.today.weather+'</li>',
+                str+='<li>湿度：'+data.result.sk
+
+                    .humidity+'</li>',
+                str+='<li>风力：'+data.result.today.wind+'</li>',
+
+                $('ul').html(str);
+            data.result.today
+        },
+        error:function() {
+            alert('请求失败');
+        }
+    })
+    })
+</script>
+</html>

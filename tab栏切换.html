@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 433px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        #bot > div{
+            width: 100%;
+            height: 300px;
+            background-color: pink;
+            display: none;
+        }
+        .currt{
+            background-color: purple;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var buts = document.getElementsByTagName('button');
+            var divs = document.getElementById('bot').getElementsByTagName('div');
+            for(var i=0;i<buts.length;i++){
+                buts[i].index = i;//自定义了buts[i]的属性
+                buts[i].onclick = function () {
+                    //先让所有的but类清空
+                    //alert(this.index);
+                    for(var j=0;j<buts.length;j++){
+                        buts[j].className = '';
+                    }
+                    //再给当前的按钮添加类名
+                    this.className = 'currt';
+                    //先清空所有的divs类
+                    for(var i=0;i<divs.length;i++){
+                        divs[i].style.display = 'none';
+                    }
+                    //留下那个和点击事件有关的
+                    divs[this.index].style.display = 'block';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <button>第一个按钮</button>
+        <button>第二个按钮</button>
+        <button>第三个按钮</button>
+        <button>第四个按钮</button>
+        <button>第五个按钮</button>
+    </div>
+    <div id="bot">
+        <div style="display: block">图片1 <img src="img/lll.jpg" alt="" style="width: 100%"></div>
+        <div>图片2 <img src="img/ppp.jpg" alt="" style="width: 100%"></div>
+        <div>图片3 <img src="img/496038_210222044000_2.jpg" alt="" style="width: 100%"s></div>
+        <div>图片4 <img src="img/05big.jpg" alt="" style="width: 100%"></div>
+        <div>图片5 <img src="img/05.jpg" alt="" style="width: 100%"></div>
+    </div>
+</div>
+</body>
+</html>

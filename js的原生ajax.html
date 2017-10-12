@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<input type="text"><button>点我</button>-->
+<ul></ul>
+</body>
+<script>
+    //jsonp跨域解决方案
+    window.baidu = {};
+    var uls = document.getElementsByTagName('ul')[0];
+    window.baidu.sug = function (data) {
+        var str = ''
+        for(var i=0;i < data.s.length;i++){
+            str+='<li>'+data.s[i]+'</li>'
+        }
+        uls.innerHTML = str;
+    }
+</script>
+<script src="123.js"></script>
+</html>

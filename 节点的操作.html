@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function () {
+        var but = document.getElementsByTagName('button')[0];//注意TaName的下标
+        var demo = document.getElementById('demo');
+        but.onclick = function () {
+            var newlis = document.createElement('li');
+            newlis.innerHTML = '我是li';
+            demo.appendChild(newlis);//子节点要放入父亲的最后面
+            demo.appendChild(demo.cloneNode());//动态克隆了一个儿子
+            demo.parentNode.appendChild(demo.cloneNode());//在demo的父节点上班克隆的胃demo的兄弟
+
+        }
+
+
+
+    }
+</script>
+<body>
+<button>点击</button>
+<ul id="demo">
+    
+</ul>
+</body>
+</html>

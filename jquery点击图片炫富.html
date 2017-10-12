@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+
+        }
+        .box{
+            width: 712px;
+            height: 251px;
+            margin: 100px auto;
+            border: 1px solid #ddd;
+        }
+        .box > ul >li{
+            width: 178px;
+            hight:125px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-size: 0;
+        }
+        .box >ul div , .box >ul >li > p{
+            width: 178px;
+            height: 24px;
+            line-height: 24px;
+            color: #ffffff;
+            font-size: 14px;
+            position: absolute;
+            bottom: -24px;
+            text-align: center;
+        }
+        .box div {
+            background-color: rgba(0,0,0,.3);
+        }
+        .box p {
+            background: url("img/bg.png") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+    </ul>
+</div>
+</body>
+<script src="jquery/jquery-1.4.1.min.js"></script>
+<script>
+    $(function () {
+        var data = [
+            {
+                src:'img/a1.JPG',
+                text:'百度一下，你就知道'
+            },{
+                src:'img/a2.JPG',
+                text:'淘宝网，淘!我喜欢'
+            },{
+                src:'img/a3.JPG',
+                text:'新浪门户，第一新闻'
+            },{
+                src:'img/a4.JPG',
+                text:'网易,网罗天下'
+            },{
+                src:'img/a5.JPG',
+                text:'第一新闻门户'
+            },{
+                src:'img/a6.JPG',
+                text:'第一新闻门户'
+            },{
+                src:'img/a7.JPG',
+                text:'全国做大的视频网'
+            },{
+                src:'img/a8.JPG',
+                text:'京东，多快好省'
+            }
+        ]
+        var str = '';
+        for(var i=0;i<data.length;i++){
+            str+='<li>';
+            str+='<img src="'+data[i].src+'" alt="">'
+            str+='<div></div>'
+            str+='<p>'+data[i].text+'</p>'
+            str+='</li>'
+        }
+        $('ul').html(str);
+        for(var j=0;j<data.length;j++){
+            $('p').eq(j).css('background-position','8px ' +(-25*j)+'px');
+        }
+        $('li ').on('mouseover',function () {
+            $(this).children('p,div').stop().animate({
+                bottom:0
+            },400);
+        })
+        $('li').on('mouseout',function(){
+            $(this).children('p,div').stop().animate({
+                bottom:'-25'
+            },400);
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function () {
+        var txt = document.getElementById('txt');
+        var but = document.getElementById('but');
+        but.onclick = function () {
+            var a = txt.value;
+            switch (a)
+            {
+                case'苹果':
+                alert('价格为2元');
+                break;
+                case'梨':
+                    alert('价格为3元');
+                    break;
+                default:
+                    alert('无此类水果');
+            }
+        }
+    }
+</script>
+<body>
+<input type="text" id="txt">
+<button id="but">查询</button>
+</body>
+</html>

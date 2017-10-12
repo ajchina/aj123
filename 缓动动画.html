@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width: 80px;
+        height: 80px;
+        background-color: red;
+        position: absolute;
+        top:50px;
+        left: 0;
+    }
+    #box1{
+        width: 80px;
+        height: 80px;
+        background-color: red;
+        position: absolute;
+        top: 160px;
+        left: 0;
+    }
+</style>
+<body>
+<button id="but">点击</button>
+<div id="box"></div>
+<div id="box1"></div>
+</body>
+<script>
+    var box = document.getElementById('box');
+    var box1 = document.getElementById('box1');
+    var but = document.getElementById('but');
+    var leader = 0;
+    var targer = 800;
+    var index = 0;
+    but.onclick = function () {
+        setInterval(function () {
+            leader = leader +(targer-leader)/10;
+            box.style.left = leader+'px';
+        },30);
+        setInterval(function () {
+            index+=5;
+            box1.style.left = index+'px';
+        },3);
+    }
+</script>
+</html>

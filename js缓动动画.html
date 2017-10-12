@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            position: absolute;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击开始运动</button>
+<div class="box" id="play"></div>
+</body>
+</html>
+<script>
+    var btn = document.getElementById('btn');
+    var play = document.getElementById('play');
+    var timer = null;
+    var leader = 0;
+    var target = 500;
+    btn.onclick = function () {
+        timer = setInterval(function () {
+            leader = leader + (target - leader)/10;//数值越大速度越慢
+            play.style.left = leader + 'px';
+        },30)
+    }
+</script>

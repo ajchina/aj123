@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    .box{
+        width: 600px;
+        height: 200px;
+        margin: 100px auto;
+        border:1px solid #d7d7d7;
+    }
+    textarea{
+        width: 400px;
+        resize: none;
+        margin: 20px auto;
+        margin: 20px auto;
+    }
+    .box li{
+        width: 450px;
+        line-height: 30px;
+        border-bottom:1px dashed #d7d7d7;
+        margin-left: 80px;
+    }
+    .box li span{
+        float: right;
+    }
+</style>
+<script src="jquery/jquery-1.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('button').on('click',function () {
+            var text = $('textarea').val();
+            if(text == ''){
+                alert('发布的内容不能为空');
+                return false;
+            }
+            var str = '';
+            str += '<li>';
+            str +=  text;
+            str += '<span>删除</span>';
+            str += '</li>';
+            $('ul').prepend(str);
+            $('textarea').val('');
+
+        })
+
+
+        $('ul').on('click','li',function () {
+            $(this).remove();
+        })
+
+
+    })
+</script>
+<body>
+<div class="box">
+    微博发布：<textarea name="" id="" cols="30" rows="10"></textarea><button>发布</button>
+    <ul></ul>
+</div>
+</body>
+</html>

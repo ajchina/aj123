@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul,ol{
+        list-style: none;
+    }
+    img{
+        display: block;/*图片底部的3像素间隙*/
+    }
+    .banner{
+        width: 490px;
+        height: 170px;
+        margin: 100px auto;
+        position: relative;
+        overflow: hidden;
+    }
+    ul{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2450px;
+        height: 170px;
+
+    }
+    ul > li{
+        float: left;
+    }
+    ol{
+        position: absolute;
+        left: 50%;
+        margin-left: -60px;
+        bottom: 8px;
+    }
+    ol > li{
+        float: left;
+        width: 18px;
+        height: 18px;line-height: 18px;
+        background-color: #ddd;
+        border-radius: 50%;
+        text-align: center;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    .current{
+        background-color: red;
+    }
+</style>
+<body>
+<div class="banner">
+    <ul>
+        <li><img src="imgs/01.jpg" alt=""></li>
+        <li><img src="imgs/02.jpg" alt=""></li>
+        <li><img src="imgs/03.jpg" alt=""></li>
+        <li><img src="imgs/04.jpg" alt=""></li>
+        <li><img src="imgs/05.jpg" alt=""></li>
+    </ul>
+    <ol>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+</body>
+</html>
+<script>
+    var uls = document.querySelector('ul');
+    var ols = document.querySelector('ol');
+    var olsli = ols.children;
+    var leader = 0, targent = 0;
+    var timer = null;
+    for(var i=0;i<olsli.length;i++){
+        olsli[i].index = i;
+        olsli[i].addEventListener('mouseenter',function () {
+            for(var j=0;j<olsli.length;j++){
+                olsli[j].className = '';
+            }
+            this.className = 'current';
+            targent = -this.index *490;
+        })
+    }
+    clearInterval(timer);
+    timer = setInterval(function () {
+        leader = leader + (targent-leader)/10;
+        uls.style.left = leader + 'px';
+    },30);
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .demo{
+            background-color: pink;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        var buts= document.getElementsByTagName('button');
+        for(var i=0;i<buts.length;i++){
+            buts[i].index = i;//给每一个button定义了一个index属性并赋值给每一次的i自增量
+            alert(i);
+            //如果只有一个button就不需要遍历直接写点击事件;
+            buts[i].onclick = function () {
+                alert(this.index);
+                //先砍掉全部的用for进行遍历
+                for (var i=0;i<buts.length;i++){
+                    buts[i].className = 'none';
+                }
+                    //在保留自己的
+                    this.className = 'demo';
+            }
+        }
+    }
+</script>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+</body>
+</html>

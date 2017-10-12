@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var a,b,c;
+    for(a = 1;a<10;a++){
+        for(b = 0;b<10;b++){
+            for(c = 0;c<10;c++){
+                var i =a*100+b*10+c;
+                if(i == a*a*a+b*b*b+c*c*c){
+                    document.write(i+'是水仙花数'+'<br/>');
+                }
+            }
+        }
+    }
+</script>
+</html>

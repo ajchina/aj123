@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 640px;
+        height: 38px;
+        margin: 200px auto;
+        position: relative;
+    }
+    span{
+        display: inline-block;
+        width: 536px;
+        height: 37px;
+        border-left: 1px solid #9d9d9d;
+        border-top: 1px solid #9d9d9d;
+
+    }
+    input{
+        width: 530px;
+        height: 38px;
+        font-size: 18px;
+        border: none;
+        outline-style: none;
+        float: right;
+        margin-bottom:5px;
+
+    }
+    button{
+        width: 103px;
+        height: 38px;
+        float: right;
+        outline-style: none;
+        background-color: #3388ff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 38px;
+    }
+    ul{
+        width: 535px;
+        list-style: none;
+        border: 1px solid #9d9d9d;
+        border-top: none;
+        clear: both;
+        position: absolute;
+        left: 0;
+        top: 37px;
+    }
+    li{
+        width: 535px;
+        height: 38px;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    li:hover{
+        background-color: #f2f2f2;
+    }
+</style>
+<body>
+<div id="box">
+    <span><input type="text"></span>
+    <button>百度一下</button>
+    <ul></ul>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        window.baidu = {};
+        /*function tag(tagName) {
+            document.getElementsByTagName(tagName)[0];
+        }*/
+        var uls = document.getElementsByTagName('ul')[0];
+        var inp = document.getElementsByTagName('input')[0];
+        var but = document.getElementsByTagName('button')[0];
+        var body = document.getElementsByTagName('body')[0];
+        but.onclick = function () {
+            var text = inp.value;
+            var script = document.createElement('script');
+            script.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+text;
+            body.append(script);
+            uls.style.borderTop = '1px solid #9d9d9d';
+
+        }
+        window.baidu.sug = function (data) {
+            var str = '';
+            for(var i=0;i<data.s.length;i++){
+                str+='<li>'+data.s[i]+'</li>'
+            }
+            uls.innerHTML = str;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo{
+            width:100px;
+            height: 100px;
+            background-color: pink;
+        }
+        #demo1 {
+            width:100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<div id="demo1"></div>
+</body>
+<script>
+    function $id(id) {
+        return document.getElementById(id);
+    }
+    $id('demo').style.backgroundColor = 'purple';
+    $id('demo1').style.backgroundColor = 'red';
+</script>
+</html>

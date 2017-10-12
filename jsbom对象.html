@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="打开新的窗口" id="inp"><br/>
+<textarea name="" id="text" cols="60" rows="30"></textarea><br/>
+<button id="but1">运行代码</button>
+<button id="but2">清空代码</button>
+<button id="but3">关闭窗口</button>
+</body>
+<script>
+    var but = document.getElementById('inp');
+    var text = document.getElementById('text');
+    var but1 = document.getElementById('but1');
+    var but2 = document.getElementById('but2');
+    var but3 = document.getElementById('but3');
+    but.onclick = function () {
+        window.open('http://www.hao123.com','_black');//打开新的窗口
+    }
+    but1.onclick = function () {
+        var newpage = window.open('about:blank');
+        newpage.document.write(text.value);
+    }
+    but2.onclick = function () {
+        text.value = '';
+    }
+    but3.onclick = function () {
+        window.close();
+    }
+    /*alert(window.navigator.userAgent);//浏览器的版本信息
+    alert(window.location);*///当前页面的位置
+   /* window.location = 'http//www.hao123.com' 第二种用法*/
+    /*but.onmouseover = function () {
+        document.write('清空当前页面，并输出东西');
+    }*/
+    var b = confirm('你是辣鸡吗');
+    alert(b);
+    var c = prompt('你想好好学习前端吗');
+    alert(c);//返回用户的输入内容或者是null
+</script>
+</html>

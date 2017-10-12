@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>中午吃什么</button>
+<div>想吃什么</div>
+</body>
+<script>
+    var arr =['肉夹馍','驴肉火烧','烩面','西北风','东北风'];//数组里的字符串必须加引号
+    var dd = document.getElementsByTagName('div')[0];
+    var cc = document.getElementsByTagName('button')[0];
+    cc.onclick = function () {
+     var index = Math.floor((Math.random()*arr.length));
+    console.log(index);
+        dd.innerHTML = '今天吃'+arr[index]+'吧';
+    }
+    /*arr.shift();
+    document.write(arr);*/
+</script>
+</html>

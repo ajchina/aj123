@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="mei">美女不见了，5秒后返回</h1>
+</body>
+<script>
+    var mei = document.getElementById('mei');
+    var nv  =5;
+    setInterval(function () {
+        nv--;
+        mei.innerHTML = '美女不见了，'+nv+'秒后返回';
+        if(nv ==0){
+            history.back();
+        }
+    },1000)
+</script>
+</html>

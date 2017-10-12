@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        .silder{
+            width: 730px;
+            height: 454px;
+        }
+        .sivcle{
+            position: absolute;
+            left: 340px;
+            margin-left: -50px;
+            bottom:10px;
+
+        }
+        .sivcle li{
+            float: left;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 18px;
+            margin-right: 10px;
+            background-color: #cccccc;
+            top: 50px;
+            left:100px;
+            cursor: pointer;
+            list-style: none;
+        }
+        .current{
+            background-color: pink;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        var new_div =document.createElement('div');//创建一个新的div
+        var uls = document.getElementById('ul');
+        var lis = uls.children;//获取ul的所有孩子
+        /*new_div.className = 'sivcle'; 同样的方法去新建new_div的class属性*/
+        new_div.setAttribute('class','sivcle');//更为常用
+        box.appendChild(new_div);
+        //在大盒子里放入li
+        for(var i=0;i<lis.length;i++){
+            var newli = document.createElement('li');
+            newli.innerHTML = i+1;
+            new_div.appendChild(newli);
+        }
+        var child = new_div.children;
+        child[0].setAttribute('classs','current')
+    }
+</script>
+<body>
+<div id="box">
+    <div class="silder">
+        <ul id="ul">
+            <li><img src="img/11.jpg" alt=""></li>
+            <li><img src="img/22.jpg" alt=""></li>
+            <li><img src="img/33.jpg" alt=""></li>
+            <li><img src="img/44.jpg" alt=""></li>
+            <li><img src="img/55.jpg" alt=""></li>
+            <li><img src="img/66.jpg" alt=""></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    var box = document.getElementById('box');
+    var nwe_div = document.createElement('div');
+    var uls = document.getElementById('ul');
+    var lis = uls.children;
+    nwe_div.setAttribute('class','sivcle');
+    box.appendChild(nwe_div);
+    for(var i=0;i<lis.length;i++){
+        var newli = document.createElement('li');
+        newli.innerHTML = i+1;
+        nwe_div.appendChild(newli);
+    }
+</script>
+</html>

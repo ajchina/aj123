@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var txt = document.getElementById('txt');
+            txt.focus();//自动获取光标;
+            txt.onmouseover = function () {
+                txt.select();//鼠标经过选择;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt"></input>
+</body>
+</html>

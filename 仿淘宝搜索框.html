@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .search{
+            height: 30px;
+            width: 300px;
+            margin:100px auto;
+            position: relative;
+        }
+        .search input{
+            width: 190px;
+            height: 25px;
+            padding-left: 8px;
+            outlie-style:none;
+            color: #cccccc;
+        }
+        .search label{
+            font-size:12px;
+            color:#ccc;
+            position: absolute;
+            top: 8px;
+            left: 20px;
+            cursor: text;
+        }
+    </style>
+</head>
+<body>
+<!--//判断用户输入-->
+<div class="search">
+    <input type="text" id="txt">
+    <label for="txt" id="message">必败的国际大牌</label>
+</div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $('txt').oninput = $('txt').onpropertychange = function () {
+        if(this.value == ""){
+            $('message').style.display = 'block';
+        }
+        else{
+            $('message').style.display = 'none';
+        }
+    }
+    /*$('txt').onfocus = function () {
+        if(this.value != ''){
+            this.value = '';
+            this.color = '#333';
+        }
+    }*/
+</script>
+</html>

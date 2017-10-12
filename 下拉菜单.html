@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background:url("img/55d177aada71f.jpg") no-repeat;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        var sele = document.getElementById('sele');
+        sele.onchange = function () {
+            switch (this.value){
+                case'1':
+                    document.body.style.backgroundImage = 'url(img/55d177aada71f.jpg)';
+                    break;
+                case'2':
+                    document.body.style.backgroundImage = 'url（img/55b3d977f2a63.jpg)';
+                    break;
+                case'3':
+                    document.body.style.backgroundImage = 'url(img/5807ed0bc4407.jpg)';
+                    break;
+
+            }
+
+        }
+    }
+</script>
+<body>
+<select name="" id="sele">
+    <option value="1">重庆1</option>
+    <option value="2">渝中半岛</option>
+    <option value="3">重庆金融大厦</option>
+</select>
+</body>
+</html>

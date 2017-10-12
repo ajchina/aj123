@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 60px;
+            height: 60px;
+            background-color: pink;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        //将类名进行封装
+        function getClass(id,classname)
+        {
+            //分为支持与不支持
+            if(document.getElementsByClassName){
+                //有Id
+                if(id){
+                    var Eleid = document.getElementById(id);
+                    return Eleid.getElementsByClassName(classname);
+                }
+                else{
+                    return document.getElementsByClassName(classname);
+                }
+            }
+            //不支持的情况
+            if(id){
+                var Eleid = document.getElementById(id);
+                var dom = Eleid.getElementsByTagName('*');
+
+            }else{
+                var dom = document.getElementsByTagName('*');
+                console.log(dom)
+            }
+            var arr = [];
+            for(var i = 0;i<dom.length;i++)
+            {
+                var txtarr = dom[i].className.split(' ');
+                for(var j=0;j<txtarr.length;j++)
+                {
+                    if(txtarr[j] == classname)
+                    {
+                        arr.push(dom[i]);
+                    }
+                }
+            }
+            return arr;
+        }
+
+
+        var aa = getClass('one','text');
+        for(var i=0;i<aa.length;i++){
+            aa[i].style.backgroundColor = 'purple';
+        }
+    }
+</script>
+<body>
+<div></div>
+<div class="demo"></div>
+<div class="text"></div>
+<div></div>
+<div></div>
+<div id="one">
+    <div class="demo text"></div>
+    <div></div>
+    <div class="demo text"></div>
+    <div></div>
+</div>
+</body>
+</html>

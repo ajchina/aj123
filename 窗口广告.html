@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 80px;
+            height: 120px;
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body style="height:2000px;">
+    <div id="div1">
+        <img src="img/airclearn.jpg" alt="" width="100%">
+    </div>
+</body>
+<script>
+    window.onresize = window.onload = window.onscroll = function () {
+        var div1 = document.getElementById('div1');
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var t = (document.documentElement.clientHeight-div1.offsetHeight)/2;
+        div1.style.top = scrollTop+t+'px';
+    }
+
+</script>
+</html>

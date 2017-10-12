@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function () {
+        var sec1 = document.getElementById('div1').innerHTML;
+        var sec2 = document.getElementById('div2').innerHTML;
+        function btnOnclick(id,text) {
+            document.getElementById(id).onclick = function () {
+                this.nextSibling.innerHTML = text;
+            }
+        }
+        btnOnclick('bnt1',sec1.concat(sec2));
+        console.log(sec1.concat(sec2));
+    }
+</script>
+<body>
+<div id="div1">adny</div>
+<div id="div2">hh</div>
+<button id="bnt1">concat()</button><span> </span> <br/>
+//注意button后面的空格 空格也算是兄弟元素;
+</body>
+</html>

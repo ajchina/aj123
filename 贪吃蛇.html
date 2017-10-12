@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dd{
+            background-color: green;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="dd"></div>
+</body>
+<script>
+    var dd = document.getElementById('dd');
+    var fix = 0;
+    var t = null;
+    var c = 0;
+    t = setInterval(function () {
+        fix++;
+            dd.style.left = fix+'px';
+            dd.style.backgroundColor = '#000';
+            if(fix == 1300){
+                clearInterval(t);
+                t= setInterval(function () {
+                    c++;
+                    dd.style.top = c+'px';
+                    if(c == 400){
+                        clearInterval(t);
+                    }
+                },10);
+        }
+
+    },10)
+</script>
+</html>

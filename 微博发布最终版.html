@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    .box{
+        width: 600px;
+        height: 200px;
+        margin: 100px auto;
+        border:1px solid #d7d7d7;
+    }
+    textarea{
+        width: 400px;
+        resize: none;
+        margin: 10px auto;
+    }
+     .box li{
+        width: 450px;
+        line-height: 30px;
+        border-bottom:1px dashed #d7d7d7;
+        margin-left: 80px;
+    }
+    .box li a{
+        float: right;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var txt = document.getElementsByTagName('textarea')[0];
+        var but = document.getElementsByTagName('button')[0];
+        var ul = document.createElement('ul');
+        but.parentNode.appendChild(ul);
+        but.onclick = function () {
+            if(txt.value == ''){
+                alert('发布的内容不能为空');
+                return false;//终止函数执行
+            }
+            var newlis = document.createElement('li');
+            newlis.innerHTML = txt.value+"<a href = 'javascript:;'>删除</a>";
+
+            txt.value = '';//生成li以后清空表单
+            var lis = ul.children;//获取li的数量
+            if(lis.length == 0){//第一次创建
+                ul.appendChild(newlis); //
+            }
+            else{
+                ul.insertBefore(newlis,lis[0]);//每次生成新的li放到第一个li的前面
+            }
+            var as = document.getElementsByTagName('a');
+            for(var i=0;i<as.length;i++){
+                as[i].onclick = function () {
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+    }
+</script>
+<body>
+<div class="box">
+    微博发布：<textarea name="" id="" cols="30" rows="10"></textarea><button>发布</button>
+</div>
+</body>
+</html>

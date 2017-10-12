@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 400px;
+        margin: 200px auto;
+        border: 1px solid pink;
+    }
+    textarea{
+        width: 400px;
+        height: 100px;
+        resize: none;
+    }
+    button{
+        float: right;
+        width: 80px;
+        height:28px;
+    }
+    #show ul{
+        list-style: none;
+    }
+    #show ul li{
+        /*display: inline;*/
+    }
+    #show {
+        margin-top: 25px;
+    }
+    #show span{
+        display: block;
+    }
+</style>
+<body>
+<div id="box">
+    <div id="comment">
+        <textarea id="text"></textarea>
+        <button id="btn">发布</button>
+    </div>
+    <div id="show">
+       <ul id="ul">
+
+       </ul>
+    </div>
+</div>
+</body>
+<script>
+    var txt = document.getElementById('text')
+    var btn = document.getElementById('btn')
+    var uls = document.getElementById('ul')
+    btn.onclick =function () {
+        if(txt.value == ''){
+            alert('输入的内容不能为空')
+        }else {
+            var li = document.createElement('li');
+            var lis = document.getElementsByTagName('li');
+            var span = document.createElement('span');
+            var date = new Date();
+            li.innerHTML = txt.value;
+            uls.appendChild(li);
+            span.innerHTML = date.getFullYear() +'/'+parseInt(date.getMonth()+1)+'/'+date.getDate()+'----'+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+            li.appendChild(span);
+            uls.appendChild(li);
+            uls.insertBefore(li,lis[0]);
+            txt.value = '';
+        }
+
+    }
+</script>
+</html>

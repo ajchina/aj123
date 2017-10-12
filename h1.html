@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        var inp = document.getElementsByTagName('input')[0];
+        var h1 = document.getElementsByTagName('h1');
+        var text = inp.value;
+        btn.onclick = function () {
+            for(var i=0;i<h1.length;i++){
+                if(i==text){
+                    h1[i].style.color = 'red';
+                }
+            }
+        }
+    }
+</script>
+<body>
+<input type="text">
+<button id="btn">点击我变色</button>
+<h1>sss</h1>
+<h1>sss</h1>
+<h1>sss</h1>
+<h1>ssss</h1>
+<h1>sss</h1>
+<h1>sss</h1>
+</body>
+</html>

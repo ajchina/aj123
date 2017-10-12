@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 100%;
+        margin: 0 auto;
+        height: 400px;
+        background-color: green;
+        text-align: center;
+    }
+     h1{
+        padding-top: 50px;
+    }
+    textarea{
+        width: 400px;
+        height: 150px;
+        margin:75px 460px;
+
+    }
+    #bottom{
+        width: 400px;
+        height: 30px;
+        border: 4px dashed #ddd;
+        background-color: #eff2ff;
+        margin:2px 480px;
+    }
+</style>
+<body>
+<div id="box">
+    <h1>心情日记</h1>
+    <textarea></textarea>
+    <div id="bottom"></div>
+</div>
+</body>
+<script src="../jquery/jquery-1.4.1.min.js"></script>
+<script>
+    /*$(function () {
+        var timer = null;
+        $('textarea').on('blur',function () {
+            var text = $(this).val();
+            var num = 0;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                num++;
+                var str = text.substring(0,num);
+                $('#bottom').html(str);
+            },100)
+        })
+    })*/
+    window.onload = function () {
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var timer = null;
+        var area = $('box').getElementsByTagName('textarea');
+        var but = $('box').getElementsByTagName('div');
+        area[0].onblur = function () {
+            text = area[0].value;
+            var num = 0;
+            timer = clearInterval(timer);
+            setInterval(function () {
+                num++;
+                var str = text.substring(0,num);
+                but[0].innerHTML = str;
+            },100);
+        }
+    }
+</script>
+</html>

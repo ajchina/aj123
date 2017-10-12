@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    <h3>全部商品分类</h3>
+        <ul>
+            <li>家用电器</li>
+            <li>手机、数码、京东通信</li>
+            <li>电脑、办公</li>
+            <li>家居、家具、家装、厨具</li>
+            <li>男装、女装、珠宝</li>
+            <li>图书、音箱、电子书</li>
+        </ul>
+</div>
+</body>
+<script src="jquery/jquery-1.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('*').css({
+            margin:'0',
+            padding:'0'
+        })
+        $('.box').css({
+            margin:'100px auto',
+            width:'270px',
+            height:'230px',
+            border:'1px solid #FF0000'
+        })
+        $('h3').css({
+            fontSize:'20px',
+            color:'#fff',
+            backgroundColor:'#FF0000',
+            paddingLeft:'12px',
+            height:'40px',
+            lineHeight:'40px'
+
+        })
+        $('ul').css('listStyle','none');
+        $('li').css({
+            paddingLeft:'12px',
+            height:'30px',
+            lineHeight:'30px'
+        })
+
+    })
+</script>
+</html>

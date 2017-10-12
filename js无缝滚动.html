@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            width: 400%;
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        img{
+            vertical-align: top;/*取消图片底部3像素距离*/
+        }
+        ul > li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="scllop">
+    <ul>
+        <li><img src="img/js1.jpg" alt=""></li>
+        <li><img src="img/js2.jpg" alt=""></li>
+        <li><img src="img/js3.jpg" alt=""></li>
+        <li><img src="img/js4.jpg" alt=""></li>
+        <li><img src="img/js1.jpg" alt=""></li>
+        <li><img src="img/js2.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+<script>
+    var box = document.getElementById('scllop');
+    var ul = box.children[0];
+    var num = 0; //控制左侧值
+    var timer  = null; //定时器
+    clearInterval(timer);
+    timer = setInterval(play,20);
+    function play() {
+        num--;
+        //console.log(num);
+        num<=-1200 ? num = 0 : num;
+        ul.style.left = num + 'px';
+    }
+    box.onmouseenter = function () {
+        clearInterval(timer);
+    }
+    box.onmouseleave = function () {
+        timer = setInterval(play,20);//开启定时器
+    }
+</script>
+</html>

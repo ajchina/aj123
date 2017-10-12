@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="File"><span></span>
+</body>
+</html>
+<script>
+    var file = document.getElementById('File');
+    file.onchange = function () {
+        var falg = this.value;//访问文件的路径
+        var s = falg.substr(falg.lastIndexOf('.'));
+        if(s == '.jpg' || s== '.png'){
+            this.nextSibling.innerHTML = '格式正确';
+        }else{
+            this.nextSibling.innerHTML = '格式错误';
+        }
+    }
+</script>

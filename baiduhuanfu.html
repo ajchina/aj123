@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        body{
+            background: url("img/1.jpg") no-repeat top center;
+        }
+        .box{
+            height: 150px;
+            padding-top: 50px;
+            background-color: rgba(255,255,255,.3);
+            text-align: center;
+            line-height: 200px;
+        }
+        .box img{
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var pic1 = document.getElementById("pic1");
+            var pic2 = document.getElementById("pic2")
+            var pic3 = document.getElementById("pic3")
+            pic1.onclick = function () {
+                document.body.style.backgroundImage = "url(img/1.jpg)"
+            }
+            pic2.onclick = function () {
+                document.body.style.backgroundImage = "url(img/2.jpg)"
+            }
+            pic3.onclick = function () {
+                document.body.style.backgroundImage = "url(img/3.jpg)"
+            }
+        }
+        var text = "欢迎光临"
+        console.log(typeof text);
+        var num = 10;
+        var num1 = "0";
+        var result ="20";
+        console.log(typeof num);
+        console.log(typeof !!num);
+        /*num1++;
+        console.log(num1);*/
+        num1 = num1+1;
+        console.log(num1);
+        a =result-10;
+        console.log(typeof a);
+        console.log(parseInt(19.11));
+        console.log(parseInt(19.99));
+        console.log(parseInt("25px"));
+        console.log(parseInt(10,2));
+        function fun() {
+            alert("自定义函数");
+        }
+        fun();
+        var fun1 = function () {
+            alert("直接量声明");
+        }
+        fun1();
+        var fun2 =new Function ("var a =10; var b =10; alert(a+b)");
+        fun2();
+        document.write("num1");
+        var num3 = 10;
+        fun();
+        function fun() {
+            var num4 = 5;
+            console.log(num4);
+            console.log(num3);
+            var num3 = 20;
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <img src="img/1.jpg" alt="" width="150px" id="pic1">
+        <img src="img/2.jpg" alt="" width="150px" id="pic2">
+        <img src="img/3.jpg" alt="" width="150px" id="pic3">
+    </div>
+</body>
+</html>
